@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Hizmetlerimiz";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    .mySlides {
+        display: none;
+    }
+    .button{
+        font-size:16px;
+        margin-left:32%;
+        border:5px solid red;
+    }
+    p{
+        font-size:x-large;
+        color: black;
+        text-align:center
+    }
+</style>
+<body>
+
+    <div class="w3-content w3-display-container">
+
+        <div class="w3-display-container mySlides">
+            <img src="~/Content/lift.jpg" style="width:100%">
+            <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+                <p>KİRPİK LİFTİNG</p>
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/Content/laminasyon.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+                <p>KAŞ LAMİNASYON</p>
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/Content/fondoten.jpg" style="width:100%">
+            <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+               <p> DÜĞÜN/KINA MAKYAJI</p>
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/Content/nailpolish.jpeg" style="width:100%">
+            <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
+               <p> PROTEZ TIRNAK/KALICI OJE/MANİKÜR</p>
+            </div>
+        </div>
+
+        <div class="w3-display-container mySlides">
+            <img src="~/Content/makyaj.jpg" style="width:100%">
+            <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
+                <p>GECE MAKYAJI</p>
+            </div>
+        </div>
+
+        <button class="button display-left black" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="button display-right black" onclick="plusDivs(1)">&#10095;</button>
+
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+</body>
+

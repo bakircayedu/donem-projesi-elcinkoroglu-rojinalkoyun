@@ -1,0 +1,101 @@
+﻿@model List<veriprojesi.Models.Randevu>
+@{
+    ViewBag.Title = "RandevuListe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    body {
+        background-color: beige;
+    }
+
+    h3 {
+        font-size: x-large;
+        color: red;
+        text-align: center;
+    }
+
+    #musteriler {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #musteriler td, #musteriler th {
+            border: 1px solid red;
+            padding: 8px;
+        }
+
+        #musteriler tr:nth-child(even) {
+            background-color: pink;
+        }
+
+        #musteriler tr:hover {
+            background-color: white;
+        }
+
+        #musteriler th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: orange;
+            color: white;
+        }
+
+    .btn {
+        background-color: deeppink;
+        color: white;
+        border: 2px solid beige;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+
+        .btn:hover {
+            background-color: pink;
+            color: white;
+        }
+</style>
+
+<div class="content-wrapper">
+    <section class=" content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Randevular Listesi</h3>
+                        @Html.ActionLink("Randevu Ekle", "RandevuEkle", null, new { @class = "btn" })<br /><br />
+                    </div>
+                    <div class="card-body">
+                        <table id="musteriler" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Musteri ID</th>
+                                    <th>Islem ID</th>
+                                    <th>Randevu Tarihi</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var Randevu in Model)
+                                {
+                                <tr>
+                                    <td>@Randevu.musteri_id</td>
+                                    <td>@Randevu.ıslem_id</td>
+                                    <td>@Randevu.randevu_tarih</td>
+                                    <td>@Html.ActionLink("Güncelle", "RandevuGuncelle", new { Randevu.randevu_id }, new { @class = "btn" })</td>
+                                    <td>@Html.ActionLink("Sil", "RandevuSil", new { Randevu.randevu_id }, new { @class = "btn " })</td>
+
+
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

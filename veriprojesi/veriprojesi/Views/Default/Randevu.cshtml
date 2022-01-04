@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Randevu";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+
+    <script>
+        function tikla() {
+            window.alert("Randevu kaydınız oluşturuldu.İyi günler dileriz")
+
+        }
+    </script>
+    <style>
+        .box {
+            background-color: beige;
+            border: 5px;
+            border-style:solid;
+            border-color:orange;
+            border-radius:12px;
+            text-align: center;
+            height: 500px;
+            width: 400px;
+            margin-left: 36%;
+            margin-top: 5%;
+            padding-top: 30px;
+        }
+
+        label {
+            font-size: medium;
+            color:red;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+     
+
+        h5 {
+            color: black;
+            font-family: 'Nunito Sans', sans-serif;
+            text-align:center;
+            font-size:x-large;
+            background-color:orange;
+        }
+    </style>
+</head>
+     <h5>NAIL'ED IT AİLESİNE SEN DE KATIL!'</h5>
+    <div class="box">
+        <form action="/Default/Randevu" method="post">
+
+            <label><b>Adınızı Girin</b></label>
+            <br />
+            <input type="text" name="ad" placeholder="Adınız" required>
+            <br />
+            <label><b>Soyadınızı Girin</b></label>
+            <br />
+            <input type="text" name="soyad" placeholder="Soyadınız" required>
+            <br />
+            <label><b>Email Adresinizi Giriniz</b></label>
+            <br />
+            <input type="text" name="email" placeholder="x@gmail.com" required>
+            <br />
+            <label><b>Randevu Tarihi Giriniz</b></label>
+            <br />
+            <input type="date" name="randevutarih" required />
+            <br />
+            <label><b>İstediğiniz İşlemin Numarasını Giriniz.</b></label>
+            <br />
+            <label><b>1/Düğün Makyaj</b></label>
+            <br />
+            <label><b>2/Kına Makyaj</b></label>
+            <br />
+            <label><b> 3/Gece Makyajı</b></label>
+            <br />
+            <label><b> 4/Protez Tırnak</b></label>
+            <br />
+            <label><b> 5/Protez Tırnak Çıkarma </b></label>
+            <br />
+            <label><b>6/Kalıcı Oje+Manikür</b></label>
+            <br />
+            <label><b>7/Manikür</b></label>
+            <br />
+            <label><b> 8/Kaş Laminasyon</b></label>
+            <br />
+            <label><b>9/Kirpik Lifting</b></label>
+            <br />
+            <input type="text" name="islem_id" placeholder="İşlem Numarası Seçiniz" required />
+
+            <br />
+
+            <input type="submit" name="submit" value="Randevu Al" onclick="tikla()" />
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+

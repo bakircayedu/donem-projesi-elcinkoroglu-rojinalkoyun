@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    h2{
+        color:orange;
+        font-size:x-large;
+        text-align:center;
+    }
+    .bolum1{
+        margin-left:10%;
+       
+        padding: 5%;
+    }
+    .btn{
+        font-size:24px;
+        border: 5px solid orange;
+        background-color:white;
+        color:orange;
+        text-align:center;
+        margin-left:40%
+    }
+</style>
+<div class="orta kapsayici">
+    <div class="bolum1">
+        <img src="~/Content/ala.jpg" alt="Kapak resmi" width="700px" height="900px">
+    </div>
+    <div class="bolum2">
+        <h2><b>RENKLİ DÜNYAMIZA HOŞGELDİNİZ</b><br /><br /> </h2>
+        <form action="@Url.Action("Randevu","Default")">
+            <button type="submit" class="btn">Randevu Al</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+

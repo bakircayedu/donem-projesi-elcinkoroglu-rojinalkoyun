@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamMeet | Giriş Yapın</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+    
+<style>
+
+*
+{
+    margin:0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body
+{
+    background: #262626bb url("img/Login.jpg");
+    background-size: cover;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+div{
+    background: #262626c2;
+    padding: 20px;
+    display:inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,.8);
+    width:400px;
+    height:500px;
+}
+
+div h2{
+    margin-top:20px;
+    font-size: 55px;
+    color:white;
+    margin-bottom: 30px;
+}
+
+div input {
+    border:none;
+    background: none;
+    text-align: center;
+    outline: none;
+    padding: 10px;
+    margin:20px;
+    color:white;
+    height:30px;
+    width:70%;
+    border-radius: 60px;
+    transition: 0.2s ease-in;
+}
+
+div input[type="text"], div input[type="password"],div input[type="email"]{
+    border:solid 4px #1B9CFC
+}
+
+div input[type="submit"]{
+    border:solid 4px #55E6C1;
+    box-sizing: border-box;
+    height:70px;
+    width:40%;
+    cursor: pointer;
+}
+
+
+div input[type="text"]:focus,div input[type="email"]:focus, div input[type="password"]:focus{
+    width:80%;
+    border:solid 2px #55E6C1;
+}
+
+div input[type="submit"]:hover{
+    background: #55E6C1;
+    color:#182C61;
+    
+    
+    
+}
+.result {color:red}
+</style>
+</head>
+
+<body>
+    
+    <div id="login_div">
+        <h2>Giriş Yap</h2>
+        <input type="text" name="ad"required placeholder="Kullanıcı Adınız" autocomplete="false" id="ad"> 
+        <input type="email" id="email2" name="email" required placeholder="E Mail" autocomplete="false">
+        <input type="password" id="sifree" required placeholder="Şifre">
+        <input type="submit" value="Giriş Yap" onclick="GirişKontrol()" >
+        <p class="result" id="result"></p> 
+      
+    </div>
+
+       <script type="text/javascript">
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyASZ_6_UCZL3CeKd5M2TQ4DEW_9o9Nur_4",
+    authDomain: "teammeet2.firebaseapp.com",
+    projectId: "teammeet2",
+    databaseURL: "https://teammeet2-default-rtdb.europe-west1.firebasedatabase.app",
+
+    storageBucket: "teammeet2.appspot.com",
+    messagingSenderId: "658395078298",
+    appId: "1:658395078298:web:05602bdc26dd54565f8923"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth=firebase.auth();
+ firebase.auth().onAuthStateChanged(function(user){
+    if (user) {
+  //  document.getElementById("user_div").style.display ="initial"
+    var user = firebase.auth().currentUser;
+    if (user) {
+  // User is signed in.
+  //window.location.href="2sayfa.html";
+} else {
+  // No user is signed in.
+}
+} else {
+    // No user is signed in
+   //document.getElementById("user_div").style.display ="none"
+}
+ });
+
+       
+ function GirişKontrol(){
+    var email=document.getElementById("email2").value;
+    var sifre=document.getElementById("sifree").value;
+    firebase.auth().signInWithEmailAndPassword(email, sifre)
+  .then((user) => {
+    window.location.href="2sayfa.html";
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert("Kullanıcı bulunamadı. Lütfen bilgilerinizi kontrol edip tekrar deneyiniz.")
+  })
+}
+  
+
+    // firebase.auth.signInWithEmailAndPassword(email2.value,sifree.value)
+    // .then((user) => {
+    //        window.location.href="2sayfa.html";
+    //     })
+    // promise.catch(e =>alert(e.message));
+    // alert("Giriş Başarılı..")
+
+
+            
+        
+
+     
+    </script>
+   
+
+
+    
+</body>
+</html>

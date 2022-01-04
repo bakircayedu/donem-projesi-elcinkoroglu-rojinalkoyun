@@ -1,0 +1,101 @@
+﻿@model List<veriprojesi.Models.SistemAdmini>
+@{
+    ViewBag.Title = "AdminListe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    body {
+        background-color: beige;
+    }
+
+    h3 {
+        font-size: x-large;
+        color: red;
+        text-align: center;
+    }
+
+    #adminler {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #adminler td, #musteriler th {
+            border: 1px solid red;
+            padding: 8px;
+        }
+
+        #adminler tr:nth-child(even) {
+            background-color: pink;
+        }
+
+        #adminler tr:hover {
+            background-color: white;
+        }
+
+        #adminler th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: orange;
+            color: white;
+        }
+
+    .btn {
+        background-color: deeppink;
+        color: white;
+        border: 2px solid beige;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+
+        .btn:hover {
+            background-color: pink;
+            color: white;
+        }
+</style>
+
+<div class="content-wrapper">
+    <section class=" content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Adminler Listesi</h3>
+                        @Html.ActionLink("Admin Ekle", "AdminEkle", null, new { @class = "btn" })<br /><br />
+                    </div>
+                    <div class="card-body">
+                        <table id="adminler" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Admin ID</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var SistemAdmini in Model)
+                                {
+                                    <tr>
+                                        <td>@SistemAdmini.admin_id</td>
+                                        <td>@SistemAdmini.kullanici_adi</td>
+                                        <td>@Html.ActionLink("Düzenle", "AdminDuzenle", new { SistemAdmini.admin_id }, new { @class = "btn" })</td>
+                                        <td>@Html.ActionLink("Sil", "AdminSil", new { SistemAdmini.admin_id }, new { @class = "btn " })</td>
+
+
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

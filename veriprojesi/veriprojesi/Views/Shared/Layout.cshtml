@@ -1,0 +1,173 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIL'ED IT!'</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body, h1, h2, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: ivory;
+        }
+
+        .arkaplan {
+            background-color: rgb(252, 170, 184);
+        }
+
+        .kapsayici {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .ust {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 200px;
+        }
+
+            .ust .logo {
+                text-align: center;
+                color: black;
+            }
+
+                .ust .logo h1 {
+                    font-size: 40px;
+                    letter-spacing: 30px;
+                }
+
+                    .ust .logo h1::first-letter {
+                        color: red;
+                    }
+
+                    .ust .logo h1:hover::first-letter {
+                        background-color: red;
+                        color: rgb(252, 170, 184);
+                    }
+
+                .ust .logo h2 {
+                    font-size: 24px;
+                }
+
+
+
+
+
+            .ust .menu ul {
+                display: flex;
+            }
+
+                .ust .menu ul li {
+                    margin: 1px;
+                }
+
+                .ust .menu ul a {
+                    color: black;
+                    text-decoration: none;
+                    font-size: 18px;
+                    padding: 2px;
+                }
+
+                    .ust .menu ul a:hover {
+                        color: red;
+                    }
+
+       
+
+        .alt {
+            margin-top: 20px;
+            padding: 20px 0;
+            display: flex;
+            gap: 20px;
+        }
+
+            .alt .baglanti {
+                flex-grow: 1;
+            }
+
+                .alt .baglanti ul li {
+                    border-bottom: dotted 1px red;
+                    margin: 5px 0;
+                }
+
+                .alt .baglanti a {
+                    font-size: 1.6rem;
+                    text-decoration: none;
+                    color: red;
+                }
+
+
+        .cizgi {
+            border-top: dotted 1px rgb(252, 170, 184);
+            margin: 20px 0;
+        }
+
+        .alt-kenar-10 {
+            border-bottom: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="arkaplan alt-kenar-10">
+        <div class="ust kapsayici">
+            <div class="logo">
+                <h1>NAIL'ED IT BEAUTY</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="@Url.Action("Index","Default")">Anasayfa</a></li>
+                    <li><a href="@Url.Action("Hizmetlerimiz","Default")">Hizmetlerimiz</a></li>
+                    <li><a href="@Url.Action("Randevu","Default")">Randevu </a></li>
+                    <li><a href="@Url.Action("Iletisim","Default")">İletişim</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    @RenderBody();
+    <!-- sayfa altı-->
+    <div class="arkaplan">
+        <div class="alt kapsayici">
+            <div class="baglanti">
+                <ul>
+                    <li><a href="@Url.Action("Index","Default")">Anasayfa</a></li>
+                    <li><a href="@Url.Action("Hizmetlerimiz","Default")">Hizmetlerimiz</a></li>
+                    <li><a href="@Url.Action("Iletisim","Default")">İletişim</a></li>
+                    <li><a href="@Url.Action("Randevu","Default")">Randevu Al</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

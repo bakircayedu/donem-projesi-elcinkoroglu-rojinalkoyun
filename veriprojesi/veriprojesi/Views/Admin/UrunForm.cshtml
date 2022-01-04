@@ -1,0 +1,99 @@
+﻿@model veriprojesi.Models.Musteri
+@{
+    ViewBag.Title = "UrunForm";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+
+}
+<style>
+   
+    #ekleme {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #ekleme td, #musteriler th {
+            border: 1px solid red;
+            padding: 8px;
+        }
+
+        #ekleme tr:nth-child(even) {
+            background-color: beige;
+        }
+
+        #ekleme tr:hover {
+            background-color: white;
+        }
+
+        #ekleme th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: orange;
+            color: white;
+        }
+
+    .btn {
+        background-color: deeppink;
+        color: white;
+        border: 2px solid beige;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+    body{
+        background-color:beige;
+    }
+    .container{
+        background-color:pink;
+        border:5px solid red;
+        text-align:center;
+        margin-left:25%;
+        width:900px;
+        height:250px;
+        margin-top:5%;
+    }
+    h4{
+        color:red;
+        font-size:x-large;
+        text-align:center
+    }
+</style>
+        
+<div class="content-wrapper">
+    <div class="container">
+        <h4>Müşteri Formu</h4>
+        @using (Html.BeginForm("Kaydet", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <table class="table table bordered" id="ekleme">
+                <tr>
+                    <td>Adı</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ad, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ad)
+                    </td>
+                    <td>Soyadı</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.soyad, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.soyad)
+                    </td>
+                    <td>Email</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.email)
+                    </td>
+                    <td></td>
+                    <td>
+                        @Html.HiddenFor(m => m.musteri_id);
+                        @Html.HiddenFor(m => m.email);
+                    </td>
+                </tr>
+
+            </table><br /> <br />
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+
+
+        }
+    </div>
+
+</div>
