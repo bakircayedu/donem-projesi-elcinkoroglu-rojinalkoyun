@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbGuzellikSalonuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Islem">
+    <Key>
+      <PropertyRef Name="islem_id" />
+    </Key>
+    <Property Name="islem_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="islem_ad" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="islem_ucret" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="musteri_id" />
+    </Key>
+    <Property Name="musteri_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefon_no" Type="int" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="randevu_id" />
+    </Key>
+    <Property Name="randevu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="musteri_id" Type="int" Nullable="false" />
+    <Property Name="randevu_tarih" Type="date" Nullable="false" />
+    <Property Name="ıslem_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DbGuzellikSalonu.dbo.Salon' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Salon">
+    <Key>
+      <PropertyRef Name="yonetici_id" />
+    </Key>
+    <Property Name="yonetici_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Yonetici">
+    <Key>
+      <PropertyRef Name="yonetici_id" />
+    </Key>
+    <Property Name="yonetici_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yonetici_ad" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Randevu__ıslem_i__3E52440B">
+    <End Role="Islem" Type="Self.Islem" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Islem">
+        <PropertyRef Name="islem_id" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="ıslem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Randevu__musteri__3D5E1FD2">
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteri">
+        <PropertyRef Name="musteri_id" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salon__yonetici___4222D4EF">
+    <End Role="Yonetici" Type="Self.Yonetici" Multiplicity="1" />
+    <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Yonetici">
+        <PropertyRef Name="yonetici_id" />
+      </Principal>
+      <Dependent Role="Salon">
+        <PropertyRef Name="yonetici_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbGuzellikSalonuModelStoreContainer">
+    <EntitySet Name="Islem" EntityType="Self.Islem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yonetici" EntityType="Self.Yonetici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salon" EntityType="Self.Salon" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Salon].[yonetici_id] AS [yonetici_id]
+    FROM [dbo].[Salon] AS [Salon]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Randevu__ıslem_i__3E52440B" Association="Self.FK__Randevu__ıslem_i__3E52440B">
+      <End Role="Islem" EntitySet="Islem" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Randevu__musteri__3D5E1FD2" Association="Self.FK__Randevu__musteri__3D5E1FD2">
+      <End Role="Musteri" EntitySet="Musteri" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salon__yonetici___4222D4EF" Association="Self.FK__Salon__yonetici___4222D4EF">
+      <End Role="Yonetici" EntitySet="Yonetici" />
+      <End Role="Salon" EntitySet="Salon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

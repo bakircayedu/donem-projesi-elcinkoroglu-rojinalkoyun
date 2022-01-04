@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+    background-color: beige;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+}
+
+
+
+
+div{
+        margin-top: 2%;
+        margin-left: 8%;
+        text-align: center;
+        background-color:beige;
+        width: 800px;
+        height: 500px;
+        padding:300px;
+        border: 150px solid ;
+        border-image: url("wallp.jpg") 20% round;
+        
+        padding: 25px;
+    
+}
+h3{
+    
+    color: red;
+    font-size: 30px;
+}
+h4{
+    
+    color:beige;
+    background-color: orange;
+    font-size: 25px;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c30cf166398740a0a1a8fec3cb642fe2" Name="Diagram1">
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.Islem" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.Musteri" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.Randevu" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.SistemAdmini" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.Yonetici" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbGuzellikSalonuModel.Salon" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="DbGuzellikSalonuModel.FK__Randevu__ıslem_i__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DbGuzellikSalonuModel.FK__Randevu__musteri__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DbGuzellikSalonuModel.FK__Salon__yonetici___4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+body {
+  background-image:url('ala.jpg');
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif; 
+  }
+
+html{
+    font-size:62.5%;
+}
+
+body,h1,h2,ul{
+    margin:0;
+    padding:0;
+    
+}
+ul{
+    list-style: none;
+}
+
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    background-color:ivory;
+}
+.arkaplan{
+    background-color: rgb(252, 170, 184);
+}
+.kapsayici{
+    width: 960px;
+    margin:0 auto;
+}
+
+.ust{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 200px;
+}
+
+.ust .logo{
+    text-align: center;
+    color:black;
+}
+.ust .logo h1{
+    font-size:40px;
+    letter-spacing: 30px;
+}
+
+.ust .logo h1::first-letter{
+    color:red;
+}
+
+.ust .logo h1:hover::first-letter{
+    background-color: red;
+    color: rgb(252, 170, 184);
+}
+
+.ust .logo h2{
+    font-size:24px;
+}
+
+
+
+
+
+.ust .menu ul{
+    display: flex;
+}
+.ust .menu ul li{
+    margin:1px;
+}
+
+.ust .menu ul a{
+    color:black;
+    text-decoration: none;
+    font-size:18px;
+    padding:2px;
+}
+.ust .menu ul a:hover{
+    color:red;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 600;
+  line-height: inherit;
+}
+
+h1,h2,h3,h4 {
+  letter-spacing: -1px;
+}
+
+h5 {
+  font-weight: 500;
+}
+
+h1 {
+  color: #252525;
+  font-size: 5em;
+}
+
+h2 {
+  color: #272727;
+  font-size: 3em;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.8em;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+#appointment {
+  padding-top: 100px;
+}
+
+#appointment label {
+  color: #393939;
+  font-weight: 500;
+}
+
+#appointment .form-control {
+  background: #f9f9f9;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  transition: all ease-in-out 0.4s;
+}
+
+#appointment input,
+#appointment select {
+  height: 45px;
+}
+
+#appointment button#cf-submit {
+  background: red;
+  color: #ffffff;
+  font-weight: 600;
+  height: 55px;
+}
+
+#appointment button#cf-submit:hover {
+  background: #393939;
+  color: #ffffff;
+}
+
+.alt{
+    margin-top:20px;
+    padding:20px 0;
+    display: flex;
+    gap:20px;
+}
+.alt .baglanti{
+    flex-grow: 1;
+}
+
+.alt .baglanti ul li{
+    border-bottom:dotted 1px red;
+    margin:5px 0;
+}
+
+.alt .baglanti a{
+    font-size:1.6rem;
+    text-decoration: none;
+    color:red;
+}
+
+
+.cizgi{
+    border-top:dotted 1px  rgb(252, 170, 184);
+    margin:20px 0;
+}
+
+.alt-kenar-10{
+    border-bottom:10px solid red;
+}
+.box{
+    background-color: rgb(252, 170, 184);
+    text-align: center;
+    width: 40%;
+    margin-left: 30%;
+}

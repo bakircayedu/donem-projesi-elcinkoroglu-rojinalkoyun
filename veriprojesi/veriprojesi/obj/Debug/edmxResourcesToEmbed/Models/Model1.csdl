@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbGuzellikSalonuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Islem">
+    <Key>
+      <PropertyRef Name="islem_id" />
+    </Key>
+    <Property Name="islem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="islem_ad" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="islem_ucret" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Randevu" Relationship="Self.FK__Randevu__ıslem_i__3E52440B" FromRole="Islem" ToRole="Randevu" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="musteri_id" />
+    </Key>
+    <Property Name="musteri_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Randevu" Relationship="Self.FK__Randevu__musteri__3D5E1FD2" FromRole="Musteri" ToRole="Randevu" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="randevu_id" />
+    </Key>
+    <Property Name="randevu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="musteri_id" Type="Int32" Nullable="false" />
+    <Property Name="randevu_tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ıslem_id" Type="Int32" Nullable="false" />
+    <Property Name="randevu_sayac" Type="Int32" />
+    <NavigationProperty Name="Islem" Relationship="Self.FK__Randevu__ıslem_i__3E52440B" FromRole="Randevu" ToRole="Islem" />
+    <NavigationProperty Name="Musteri" Relationship="Self.FK__Randevu__musteri__3D5E1FD2" FromRole="Randevu" ToRole="Musteri" />
+  </EntityType>
+  <EntityType Name="SistemAdmini">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanici_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Yonetici">
+    <Key>
+      <PropertyRef Name="yonetici_id" />
+    </Key>
+    <Property Name="yonetici_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yonetici_ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Salon" Relationship="Self.FK__Salon__yonetici___4222D4EF" FromRole="Yonetici" ToRole="Salon" />
+  </EntityType>
+  <EntityType Name="Salon">
+    <Key>
+      <PropertyRef Name="yonetici_id" />
+    </Key>
+    <Property Name="yonetici_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Yonetici" Relationship="Self.FK__Salon__yonetici___4222D4EF" FromRole="Salon" ToRole="Yonetici" />
+  </EntityType>
+  <Association Name="FK__Randevu__ıslem_i__3E52440B">
+    <End Role="Islem" Type="Self.Islem" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Islem">
+        <PropertyRef Name="islem_id" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="ıslem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Randevu__musteri__3D5E1FD2">
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteri">
+        <PropertyRef Name="musteri_id" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="musteri_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salon__yonetici___4222D4EF">
+    <End Role="Yonetici" Type="Self.Yonetici" Multiplicity="1" />
+    <End Role="Salon" Type="Self.Salon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Yonetici">
+        <PropertyRef Name="yonetici_id" />
+      </Principal>
+      <Dependent Role="Salon">
+        <PropertyRef Name="yonetici_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbGuzellikSalonuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Islem" EntityType="Self.Islem" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" />
+    <EntitySet Name="SistemAdmini" EntityType="Self.SistemAdmini" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Yonetici" EntityType="Self.Yonetici" />
+    <EntitySet Name="Salon" EntityType="Self.Salon" />
+    <AssociationSet Name="FK__Randevu__ıslem_i__3E52440B" Association="Self.FK__Randevu__ıslem_i__3E52440B">
+      <End Role="Islem" EntitySet="Islem" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Randevu__musteri__3D5E1FD2" Association="Self.FK__Randevu__musteri__3D5E1FD2">
+      <End Role="Musteri" EntitySet="Musteri" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salon__yonetici___4222D4EF" Association="Self.FK__Salon__yonetici___4222D4EF">
+      <End Role="Yonetici" EntitySet="Yonetici" />
+      <End Role="Salon" EntitySet="Salon" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
